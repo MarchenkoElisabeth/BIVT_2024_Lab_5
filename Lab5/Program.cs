@@ -810,42 +810,33 @@ public class Program
                 if (matrix[i, j] < matrix[max[0, 0], max[0, 1]]) continue;
                 else if (matrix[i, j] >= matrix[max[4, 0], max[4, 1]])
                 {
-                    max[0, 0] = max[1, 0];
-                    max[0, 1] = max[1, 1];
-
-                    max[1, 0] = max[2, 0];
-                    max[1, 1] = max[2, 1];
-
-                    max[2, 0] = max[3, 0];
-                    max[2, 1] = max[3, 1];
-
-                    max[3, 0] = max[4, 0];
-                    max[3, 1] = max[4, 1];
-
+                    for(int k = 0; k < 4; k++)
+                    {
+                    max[k, 0] = max[k+1, 0];
+                    max[k, 1] = max[k+1, 1];
+                    }
+                    
                     max[4, 0] = i;
                     max[4, 1] = j;
                 }
                 else if (matrix[i, j] >= matrix[max[3, 0], max[3, 1]])
                 {
-                    max[0, 0] = max[1, 0];
-                    max[0, 1] = max[1, 1];
-
-                    max[1, 0] = max[2, 0];
-                    max[1, 1] = max[2, 1];
-
-                    max[2, 0] = max[3, 0];
-                    max[2, 1] = max[3, 1];
+                    for (int k = 0; k < 3; k++)
+                    {
+                        max[k, 0] = max[k + 1, 0];
+                        max[k, 1] = max[k + 1, 1];
+                    }
 
                     max[3, 0] = i;
                     max[3, 1] = j;
                 }
                 else if (matrix[i, j] >= matrix[max[2, 0], max[2, 1]])
                 {
-                    max[0, 0] = max[1, 0];
-                    max[0, 1] = max[1, 1];
-
-                    max[1, 0] = max[2, 0];
-                    max[1, 1] = max[2, 1];
+                    for (int k = 0; k < 2; k++)
+                    {
+                        max[k, 0] = max[k + 1, 0];
+                        max[k, 1] = max[k + 1, 1];
+                    }
 
                     max[2, 0] = i;
                     max[2, 1] = j;
