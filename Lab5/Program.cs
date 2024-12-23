@@ -795,70 +795,55 @@ public class Program
         // end
     }
 
-    public int[,] Find5Max(double[,] matrix)
+    public void shift(int[,] max, int n, int i, int j)
+{
+    for (int k = 0; k < n; k++)
     {
-        int n = matrix.GetLength(0), m = matrix.GetLength(1);
-        int[,] max = new int[5, 2] { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 } };
-        if (matrix.Length <= 5)
+        max[k, 0] = max[k + 1, 0];
+        max[k, 1] = max[k + 1, 1];
+    }
+
+    max[n, 0] = i;
+    max[n, 1] = j;
+}
+public int[,] Find5Max(double[,] matrix)
+{
+    int n = matrix.GetLength(0), m = matrix.GetLength(1);
+    int[,] max = new int[5, 2] { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 }, { 0, 0 } };
+    if (matrix.Length <= 5)
+    {
+        return max;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
         {
-            return max;
-        }
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
+            if (matrix[i, j] < matrix[max[0, 0], max[0, 1]]) continue;
+            else if (matrix[i, j] >= matrix[max[4, 0], max[4, 1]])
             {
-                if (matrix[i, j] < matrix[max[0, 0], max[0, 1]]) continue;
-                else if (matrix[i, j] >= matrix[max[4, 0], max[4, 1]])
-                {
-                    for(int k = 0; k < 4; k++)
-                    {
-                    max[k, 0] = max[k+1, 0];
-                    max[k, 1] = max[k+1, 1];
-                    }
-                    
-                    max[4, 0] = i;
-                    max[4, 1] = j;
-                }
-                else if (matrix[i, j] >= matrix[max[3, 0], max[3, 1]])
-                {
-                    for (int k = 0; k < 3; k++)
-                    {
-                        max[k, 0] = max[k + 1, 0];
-                        max[k, 1] = max[k + 1, 1];
-                    }
-
-                    max[3, 0] = i;
-                    max[3, 1] = j;
-                }
-                else if (matrix[i, j] >= matrix[max[2, 0], max[2, 1]])
-                {
-                    for (int k = 0; k < 2; k++)
-                    {
-                        max[k, 0] = max[k + 1, 0];
-                        max[k, 1] = max[k + 1, 1];
-                    }
-
-                    max[2, 0] = i;
-                    max[2, 1] = j;
-                }
-                else if (matrix[i, j] >= matrix[max[1, 0], max[1, 1]])
-                {
-                    max[0, 0] = max[1, 0];
-                    max[0, 1] = max[1, 1];
-
-                    max[1, 0] = i;
-                    max[1, 1] = j;
-                }
-                else if (matrix[i, j] >= matrix[max[0, 0], max[0, 1]])
-                {
-                    max[0, 0] = i;
-                    max[0, 1] = j;
-                }
+                shift(max, 4, i, j);
+            }
+            else if (matrix[i, j] >= matrix[max[3, 0], max[3, 1]])
+            {
+                shift(max, 3, i, j);
+            }
+            else if (matrix[i, j] >= matrix[max[2, 0], max[2, 1]])
+            {
+                shift(max, 2, i, j);
+            }
+            else if (matrix[i, j] >= matrix[max[1, 0], max[1, 1]])
+            {
+                shift(max, 1, i, j);
+            }
+            else if (matrix[i, j] >= matrix[max[0, 0], max[0, 1]])
+            {
+                shift(max, 0, i, j);
             }
         }
-        return max;
-
     }
+    return max;
+
+}
     public void MatrixValuesChange(double[,] matrix, int[,] max)
     {
         int n = matrix.GetLength(0), m = matrix.GetLength(1);
