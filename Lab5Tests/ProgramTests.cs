@@ -1430,7 +1430,7 @@ namespace Tests
         public void Task_3_5Test()
         {
             // Arrange
-            int answerA = 2, answerB = 1;
+            int answerA = 1, answerB = 1;
             // Act
             main.Task_3_5(out int resultA, out int resultB);
             // Assert
@@ -1687,6 +1687,35 @@ namespace Tests
         //    for (int i = 0; i < answerBd.Length; i++)
         //        Assert.AreEqual(answerBd[i], resultBd[i]);
         //}
+
+        [TestMethod()]
+        public void Task_3_28cTest()
+        {
+            // Arrange
+            int[] A = new int[7], B = new int[7];
+            int[] C = new int[6], D = new int[6];
+            Array.Copy(arr7, A, A.Length);
+            Array.Copy(arr7b, B, B.Length);
+            Array.Copy(arr6, C, C.Length);
+            Array.Copy(arr6b, D, D.Length);
+            int[] answerAi = new int[2] { 0, 2 }, answerAd = new int[2] { 2, 4 }, answerBi = new int[2] { 0, 6 }, answerBd = new int[2] { 0, 0 },
+                resultAi = null, resultAd = null, resultBi = null, resultBd = null;
+            // Act
+            main.Task_3_28c(A, B, ref resultAi, ref resultAd, ref resultBi, ref resultBd);
+            // Assert
+            Assert.AreEqual(answerAi.Length, resultAi.Length);
+            Assert.AreEqual(answerAd.Length, resultAd.Length);
+            Assert.AreEqual(answerBi.Length, resultBi.Length);
+            Assert.AreEqual(answerBd.Length, resultBd.Length);
+            for (int i = 0; i < answerAi.Length; i++)
+                Assert.AreEqual(answerAi[i], resultAi[i]);
+            for (int i = 0; i < answerAd.Length; i++)
+                Assert.AreEqual(answerAd[i], resultAd[i]);
+            for (int i = 0; i < answerBi.Length; i++)
+                Assert.AreEqual(answerBi[i], resultBi[i]);
+            for (int i = 0; i < answerBd.Length; i++)
+                Assert.AreEqual(answerBd[i], resultBd[i]);
+        }
 
         [TestMethod()]
         public void Task_4Test()

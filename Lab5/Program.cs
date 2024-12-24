@@ -208,6 +208,7 @@ public class Program
         if (areaFirst < areaSecond) return 2;
         // end
 
+        // first = 1, second = 2, equal = 0, error = -1
         return answer;
     }
 
@@ -233,6 +234,7 @@ public class Program
         if (distF < distS) return 2;
         // end
 
+        // first = 1, second = 2, equal = 0
         return answer;
     }
 
@@ -310,7 +312,8 @@ public class Program
     {
         // code here
 
-        // create and use FindMax(array);
+        // create and use FindMaxIndex(array);
+        // only 1 array has to be changed!
 
         // end
     }
@@ -373,8 +376,7 @@ public class Program
     {
         // code here
 
-        // use method FindDiagonalMax(matrix); from Task_2_3
-        // use method FindDiagonalMaxIndex(matrix); from Task_2_3
+        //  create and use method FindDiagonalMaxIndex(matrix); like in Task_2_3
 
         // end
     }
@@ -405,6 +407,7 @@ public class Program
     {
         // code here
 
+        // create and use FindMax(matrix, out row, out column); like in Task_2_1
         // create and use DeleteElement(array, index);
 
         // end
@@ -605,7 +608,7 @@ public class Program
 
     public int Task_2_15(int[,] A, int[,] B, int[,] C)
     {
-        int answer = 0; // 1 - increasing   0 - no sequence   -1 - decreasing
+        int answer = 0;
 
         // code here
 
@@ -616,6 +619,7 @@ public class Program
         else answer = 0;
         // end
 
+        // 1 - increasing   0 - no sequence   -1 - decreasing
         return answer;
     }
     public double GetAverageWithoutMinMax(int[,] matrix)
@@ -762,8 +766,8 @@ public class Program
 
         // code here
 
-        // create and use GetNegativeCountPerRow(matrix);
-        // create and use GetMaxNegativePerColumn(matrix);
+        // create and use CountNegativeInRow(matrix, rowIndex);
+        // create and use FindMaxNegativePerColumn(matrix);
 
         // end
     }
@@ -883,7 +887,8 @@ public int[,] Find5Max(double[,] matrix)
     {
         // code here
 
-        // use FindMax(matrix); from 2_1
+        // use FindMaxIndex(matrix, out row, out column); like in 2_1
+        // create and use SwapColumnDiagonal(matrix, columnIndex);
 
         // end
     }
@@ -918,8 +923,8 @@ public int[,] Find5Max(double[,] matrix)
     {
         // code here
 
-        // use GetNegativeCountPerRow(matrix); from 2_22
-        // create and use FindMaxIndex(array);
+        // create and use FindRowWithMaxNegativeCount(matrix); like in 2_25
+        // in FindRowWithMaxNegativeCount use CountNegativeInRow(matrix, rowIndex); from 2_22
 
         // end
     }
@@ -927,7 +932,8 @@ public int[,] Find5Max(double[,] matrix)
     public void Task_2_27(int[,] A, int[,] B)
     {
         // code here
-        // create and use FindRowMaxIndex(matrix)
+
+        // create and use FindRowMaxIndex(matrix, rowIndex, out columnIndex);
         // create and use ReplaceMaxElementOdd(matrix, row, column);
         // create and use ReplaceMaxElementEven(matrix, row, column);
         int[] maxIndexA = FindRowMaxIndex(A);
@@ -972,6 +978,7 @@ public int[,] Find5Max(double[,] matrix)
         // code here
 
         // create and use FindSequence(array, A, B); // 1 - increasing, 0 - no sequence,  -1 - decreasing
+        // A and B - start and end indexes of elements from array for search
 
         // end
     }
@@ -981,6 +988,7 @@ public int[,] Find5Max(double[,] matrix)
         // code here
 
         // use FindSequence(array, A, B); from Task_2_28a or entirely Task_2_28a
+        // A and B - start and end indexes of elements from array for search
 
         // end
     }
@@ -990,6 +998,7 @@ public int[,] Find5Max(double[,] matrix)
         // code here
 
         // use FindSequence(array, A, B); from Task_2_28a or entirely Task_2_28a or Task_2_28b
+        // A and B - start and end indexes of elements from array for search
 
         // end
     }
@@ -1099,8 +1108,9 @@ public int[,] Find5Max(double[,] matrix)
         answer = GetSum(array);
 
         // create and use public delegate SwapDirection(array);
-        // create and use methods SwapRight(array) and SwapLeft(array) and GetSum(array)
-        // change method in variable swapper in the loop here and use it for array swapping
+        // create and use methods SwapRight(array) and SwapLeft(array)
+        // create and use method GetSum(array, start, h) that sum elements with a negative indexes
+        // change method in variable swapper in the if/else and than use swapper(matrix)
 
         // end
 
@@ -1154,8 +1164,7 @@ public int[,] Find5Max(double[,] matrix)
 
         // create and use public delegate GetTriangle(matrix);
         // create and use methods GetUpperTriange(array) and GetLowerTriange(array)
-        // and GetSum(GetTriangle, matrix)
-        // create and use method GetSum(array) similar to GetSum in Task_3_3
+        // create and use GetSum(GetTriangle, matrix)
 
         // end
 
@@ -1212,7 +1221,7 @@ public int[,] Find5Max(double[,] matrix)
         // code here
 
         // create and use public delegate FindElementDelegate(matrix);
-        // use method FindDiagonalMaxIndex(matrix) from Task_2_3;
+        // use method FindDiagonalMaxIndex(matrix) like in Task_2_3;
         // create and use method FindFirstRowMaxIndex(matrix);
         // create and use method SwapColumns(matrix, FindDiagonalMaxIndex, FindFirstRowMaxIndex);
 
